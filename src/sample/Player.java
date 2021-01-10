@@ -18,4 +18,9 @@ public class Player
     {
         return null;
     }
+    Player(String name, int score, Board board){
+        setName(name);
+        setScore(score);
+        setBoard(board);
+    }
 }
