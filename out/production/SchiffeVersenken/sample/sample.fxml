@@ -7,13 +7,15 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<GridPane alignment="center" hgap="10" prefHeight="491.0" prefWidth="892.0" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="sample.Controller">
+<GridPane alignment="center" hgap="10" prefHeight="534.0" prefWidth="691.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints maxWidth="144.00001220703126" minWidth="64.0" prefWidth="116.79998779296875" />
       <ColumnConstraints maxWidth="137.6" minWidth="42.40001220703127" prefWidth="87.20000000000002" />
       <ColumnConstraints maxWidth="44.79998779296875" minWidth="0.0" prefWidth="0.0" />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
       <ColumnConstraints />
       <ColumnConstraints />
       <ColumnConstraints />
@@ -71,15 +73,23 @@
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
    </rowConstraints>
    <children>
-      <TextField fx:id="txt_name" prefHeight="26.0" prefWidth="108.0" promptText="Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Label fx:id="lbl_score" text="Score: " GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Button fx:id="btn_ready" mnemonicParsing="false" prefHeight="26.0" prefWidth="77.0" text="Bereit" GridPane.columnIndex="27" GridPane.rowIndex="1" />
-      <Button fx:id="btn_surrender" mnemonicParsing="false" prefHeight="26.0" prefWidth="79.0" text="Aufgeben" GridPane.columnIndex="27" GridPane.rowIndex="30" />
-      <Button fx:id="btn_v" mnemonicParsing="false" prefHeight="26.0" prefWidth="66.0" text="Vertikal" GridPane.columnIndex="1" GridPane.rowIndex="30" />
-      <Button fx:id="btn_h" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Horizontal" GridPane.columnIndex="2" GridPane.rowIndex="30" />
-      <TextField fx:id="txt_shipSize" prefHeight="26.0" prefWidth="172.0" promptText="Schiffsgröße" GridPane.columnIndex="7" GridPane.rowIndex="1" />
-      <Label fx:id="lbl_maxShips" prefHeight="18.0" prefWidth="94.0" text="Schiffe:" GridPane.columnIndex="16" GridPane.rowIndex="1" />
+      <TextField fx:id="txt_name" prefHeight="26.0" prefWidth="107.0" promptText="Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label fx:id="lbl_score" text="Score: " GridPane.columnIndex="1" GridPane.rowIndex="8" />
+      <Button fx:id="btn_ready" mnemonicParsing="false" prefHeight="26.0" prefWidth="143.0" text="Bereit" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+      <Button fx:id="btn_surrender" mnemonicParsing="false" prefHeight="26.0" prefWidth="79.0" text="Aufgeben" GridPane.columnIndex="1" GridPane.rowIndex="38" />
+      <Button fx:id="btn_v" mnemonicParsing="false" prefHeight="26.0" prefWidth="139.0" text="Vertikal" GridPane.columnIndex="25" GridPane.rowIndex="1" />
+      <Button fx:id="btn_h" mnemonicParsing="false" prefHeight="26.0" prefWidth="72.0" text="Horizontal" GridPane.columnIndex="25" GridPane.rowIndex="4" />
+      <TextField fx:id="txt_shipSize" prefHeight="26.0" prefWidth="172.0" promptText="Schiffsgröße" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+      <Label fx:id="lbl_maxShips" prefHeight="18.0" prefWidth="100.0" text="Schiffe:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
    </children>
 </GridPane>
