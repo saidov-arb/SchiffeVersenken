@@ -14,8 +14,29 @@ public class Board
     public int[][] getFireld() { return fireld; }
     public void setFireld(int[][] fireld) { this.fireld = fireld; }
 
+    //Schießt eine Bombe auf die gegebenen Koordinaten.
+    //Aus Systemtechnischer Sicht - Man ändert einen 1er zu 404, wenn getroffen.
+    boolean explode(int x, int y)
+    {
+        try
+        {
+            if (getFireld()[y][x] == 1)
+            {
+                getFireld()[y][x] = 404;
+                return true;
+            } else
+            {
+                return false;
+            }
+        }catch (IndexOutOfBoundsException e)
+        {
+            System.out.println("Index gibt's ned.");
+            return false;
+        }
+    }
+
     //Kontrolliert, ob an dieser Stelle 0 steht. Wenn nicht, dann gibt es false zurück.
-    boolean checkForSpace(int x,int y,int shipSize,char hv)
+    boolean checkForSpace(int x, int y, int shipSize, char hv)
     {
         try
         {
@@ -168,8 +189,10 @@ public class Board
     }
 
 
+    //Gibt das gesamte Feld aus. Nur zum System Testen gebaut.
     void printBoard()
     {
+        System.out.println("\n");
         for (int i = 0; i <= Game.FIRELDSIZE; i++)
         {
             System.out.print(i+" | ");

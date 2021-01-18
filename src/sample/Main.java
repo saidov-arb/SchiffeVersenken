@@ -19,5 +19,16 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+
+//        Player zisPlayer = new Player("OneCentProduction TestUser");
+//        zisPlayer.getBoard().placeShip(1,1,5,'H');
+//        zisPlayer.getBoard().placeShip(0,4,4,'V');
+//        zisPlayer.getBoard().printBoard();
+//
+//        zisPlayer.getBoard().explode(1,1);
+//        zisPlayer.getBoard().printBoard();
+//
+//        zisPlayer.getBoard().explode(2,1);
+//        zisPlayer.getBoard().printBoard();
     }
 }

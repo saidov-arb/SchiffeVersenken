@@ -13,15 +13,17 @@ public class Game
     //Gibt den Index vom Array zurück, je nachdem welcher Spieler gewonnen hat.
     int checkForWinner()
     {
-        return 0;
+        if (getGamers()[0].getScore() == MAX_SHIPS)
+        {
+            return 0;
+        }else if (getGamers()[1].getScore() == MAX_SHIPS)
+        {
+            return 1;
+        }else
+        {
+            return -7;
+        }
     }
-
-    //Gibt true zurück, wenn ein Spieler aufgegeben hat.
-    boolean checkForSurrender()
-    {
-        return false;
-    }
-
 
     //Generiert ein random Board, wo die Schiffe zufällig platziert werden.
     Board randomBoard()

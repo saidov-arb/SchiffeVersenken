@@ -26,6 +26,7 @@ public class Player
     Player(String name)
     {
         setName(name);
+        setBoard(new Board());
         setScore(0);
     }
 
