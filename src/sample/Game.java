@@ -26,7 +26,7 @@ public class Game
     }
 
     //Generiert ein random Board, wo die Schiffe zufällig platziert werden.
-    Board randomBoard()
+    static Board randomBoard()
     {
         Board reBoard = new Board();
         int placeableShips = Game.MAX_SHIPS;
@@ -34,15 +34,32 @@ public class Game
         int x,y;
         byte randomHV;
         char hv;
+        boolean worked;
 
-        shipSize = (int) ((Math.random()*6)+3);
-        placeableShips -= shipSize;
-        x = (int) (Math.random()*Game.FIRELDSIZE);
-        y = (int) (Math.random()*Game.FIRELDSIZE);
-        randomHV = (byte) (Math.random()*2);
-        if (randomHV == 0){ hv = 'H'; } else { hv = 'V'; }
-
-        reBoard.placeShip(x,y,shipSize,hv);
+        while(placeableShips > 0)
+        {
+            shipSize = (int)((Math.random()*5)+1);
+            x = (int)((Math.random()*FIRELDSIZE));
+            y = (int)((Math.random()*FIRELDSIZE));
+            randomHV = (byte)((Math.random()*2)+1);
+            if (randomHV == 1)
+            {
+                hv = 'H';
+            }else{
+                hv = 'V';
+            }
+            System.out.println("\nx: "+x+"\ny: "+y+"\nshipSize: "+shipSize+"\nhv: "+hv+"\n");
+            if (reBoard.checkForSpace(x,y,shipSize,hv))
+            {
+                if (placeableShips - shipSize < 0)
+                {
+                    shipSize = placeableShips;
+                    placeableShips -= placeableShips;
+                }
+                placeableShips -= shipSize;
+                reBoard.placeShip(x, y, shipSize, hv);
+            }
+        }
         return reBoard;
     }
 }

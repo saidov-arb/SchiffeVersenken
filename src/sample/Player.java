@@ -5,7 +5,7 @@ public class Player
     private String name;
     private int score;
     private Board board;
-    public String[] randomName = {
+    public static String[] randomName = {
             "Altinger Julian","Bandalo Lukas","Blazevic Dominik",
             "Gegenleitner Alexander","Gmeiner Manuel","Gojer Sebastian",
             "Helperstorfer Julian","Imre Baran","Imre Bertal",
@@ -31,7 +31,7 @@ public class Player
     }
 
     //Generiert einen random Spieler.
-    Player botPlayer()
+    static Player botPlayer()
     {
         Player rePlayer = new Player(randomName[(int)(Math.random()*22)]);
 
