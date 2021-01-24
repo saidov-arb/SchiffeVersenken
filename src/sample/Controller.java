@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -46,6 +47,16 @@ public class Controller implements Initializable
         hv = 'H';
     }
 
+    public void clickOnHV(ActionEvent av){
+        Button input = (Button) av.getSource();
+        hv = input.getText().toCharArray()[0];
+    }
+
+    public void clickOnReady(){
+        zisGame.getGamers()[0] = new Player(txt_name.getText());
+        zisGame.getGamers()[1] = Player.botPlayer();
+        txt_name.setDisable(true);
+    }
 
     EventHandler<MouseEvent> clickOnButtonToPlace = new EventHandler<MouseEvent>()
     {

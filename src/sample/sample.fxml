@@ -27,8 +27,8 @@
       <TextField fx:id="txt_shipSize" minHeight="50.0" minWidth="100.0" promptText="Schiffsgröße" GridPane.columnSpan="2" GridPane.rowIndex="1" />
       <Label fx:id="lbl_maxShips" text="Schiffe:" GridPane.columnSpan="2" GridPane.rowIndex="2" />
       <Label fx:id="lbl_score" text="Score:" GridPane.columnSpan="2" GridPane.rowIndex="3" />
-      <Button fx:id="btn_h" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" text="H" GridPane.rowIndex="4" />
-      <Button fx:id="btn_v" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" text="V" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Button fx:id="btn_ready" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" text="Bereit" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+      <Button fx:id="btn_h" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#clickOnHV" text="H" GridPane.rowIndex="4" />
+      <Button fx:id="btn_v" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#clickOnHV" text="V" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Button fx:id="btn_ready" minHeight="50.0" minWidth="100.0" mnemonicParsing="false" onAction="#clickOnReady" text="Bereit" GridPane.columnSpan="2" GridPane.rowIndex="5" />
    </children>
 </GridPane>
