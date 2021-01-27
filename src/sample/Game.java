@@ -21,10 +21,10 @@ public class Game
     //Gibt den Index vom Array zurück, je nachdem welcher Spieler gewonnen hat.
     int checkForWinner()
     {
-        if (getGamers()[0].getScore() == MAX_SHIPS)
+        if (getGamers()[0].getScore() >= MAX_SHIPS)
         {
             return 0;
-        }else if (getGamers()[1].getScore() == MAX_SHIPS)
+        }else if (getGamers()[1].getScore() >= MAX_SHIPS)
         {
             return 1;
         }else

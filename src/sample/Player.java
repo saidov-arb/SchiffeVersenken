@@ -14,14 +14,14 @@ public class Player
     private int score;
     private Board board;
     public static String[] randomName = {
-            "Altinger Julian","Bandalo Lukas","Blazevic Dominik",
-            "Gegenleitner Alexander","Gmeiner Manuel","Gojer Sebastian",
-            "Helperstorfer Julian","Imre Baran","Imre Bertal",
-            "Jedzizic Marko","Jukic Leon","Kovacic David",
-            "Luttenberger Fabian","Müllecker Georg","Neubauer Stefan",
-            "Prast Eric","Puntigam Thomas","Saidov Arbi",
-            "Tekel Marian","Tokic Jan","Viechtbauer Lukas",
-            "Watzinger Patrick"
+            "Altinger","Bandalo","Blazevic",
+            "Gegenleitner","Gmeiner","Gojer",
+            "Helperstorfer","Imre","Imre",
+            "Jedzizic","Jukic","Kovacic",
+            "Luttenberger","Müllecker","Neubauer",
+            "Prast","Puntigam","Saidov",
+            "Tekel","Tokic","Viechtbauer",
+            "Watzinger"
     };
 
     public String getName() { return name; }

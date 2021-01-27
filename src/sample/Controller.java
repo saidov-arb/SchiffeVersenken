@@ -76,7 +76,23 @@ public class Controller implements Initializable
         @Override
         public void handle(MouseEvent mouseEvent)
         {
-
+            Button input = (Button) mouseEvent.getSource();
+            for (int i = 0; i < Game.FIRELDSIZE; i++)
+            {
+                for (int j = 0; j < Game.FIRELDSIZE; j++)
+                {
+                    try
+                    {
+                        if (fireldButtons[i][j] == input)
+                        {
+                            zisGame.getGamers()[playerIndex].getBoard().placeShip(i, j, Integer.parseInt(txt_shipSize.getText()), hv);
+                        }
+                    }catch (NumberFormatException e) {
+                        System.out.println("Sie beser geben ein eine Zahl.");
+                    }
+                }
+            }
+            updateView(zisGame.getGamers()[playerIndex].getBoard());
         }
     };
 
@@ -99,8 +115,50 @@ public class Controller implements Initializable
         {
             for (int j = 0; j < Game.FIRELDSIZE; j++)
             {
-                fireldButtons[i][j].setText(String.valueOf(iBoard.getFireld()[i][j]));
+                fireldButtons[i][j].setText("");
             }
+        }
+        if (playerIndex == 0)
+        {
+            for (int i = 0; i < Game.FIRELDSIZE; i++)
+            {
+                for (int j = 0; j < Game.FIRELDSIZE; j++)
+                {
+                    if (iBoard.getFireld()[j][i] == 1 || iBoard.getFireld()[j][i] == 404 || iBoard.getFireld()[j][i] == 501)
+                    {
+                        fireldButtons[i][j].setText(String.valueOf(iBoard.getFireld()[j][i]));
+                    }
+                }
+            }
+        }else if (playerIndex == 1){
+            for (int i = 0; i < Game.FIRELDSIZE; i++)
+            {
+                for (int j = 0; j < Game.FIRELDSIZE; j++)
+                {
+                    if (iBoard.getFireld()[j][i] == 1 || iBoard.getFireld()[j][i] == 404 || iBoard.getFireld()[j][i] == 501)
+                    {
+                        fireldButtons[i][j].setText(String.valueOf(iBoard.getFireld()[j][i]));
+                    }
+                }
+            }
+        }
+        lbl_score.setText("Punkte: "+zisGame.getGamers()[playerIndex].getScore());
+        if (zisGame.getGamers()[0].getBoard().getPlaceableShips() > 0)
+        {
+            lbl_maxShips.setText("Schiffe: " + zisGame.getGamers()[playerIndex].getBoard().getPlaceableShips());
+        }else
+        {
+            lbl_maxShips.setText("");
+        }
+    }
+    //Wechselt zum nächsten Spieler. Eine große Hilfe, weil man nicht mehr
+    //überlegen muss, wann man den playerIndex zurücksetzt.
+    void nextPlayer()
+    {
+        playerIndex++;
+        if (playerIndex > 1)
+        {
+            playerIndex = 0;
         }
     }
 }
