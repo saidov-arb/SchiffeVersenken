@@ -29,14 +29,12 @@ public class Game
     static Board randomBoard()
     {
         Board reBoard = new Board();
-        int placeableShips = Game.MAX_SHIPS;
         int shipSize;
         int x,y;
         byte randomHV;
         char hv;
-        boolean worked;
 
-        while(placeableShips > 0)
+        while(reBoard.getPlaceableShips() >= 1)
         {
             shipSize = (int)((Math.random()*5)+1);
             x = (int)((Math.random()*FIRELDSIZE));
@@ -48,17 +46,7 @@ public class Game
             }else{
                 hv = 'V';
             }
-            System.out.println("\nx: "+x+"\ny: "+y+"\nshipSize: "+shipSize+"\nhv: "+hv+"\n");
-            if (reBoard.checkForSpace(x,y,shipSize,hv))
-            {
-                if (placeableShips - shipSize < 0)
-                {
-                    shipSize = placeableShips;
-                    placeableShips -= placeableShips;
-                }
-                placeableShips -= shipSize;
-                reBoard.placeShip(x, y, shipSize, hv);
-            }
+            reBoard.placeShip(x, y, shipSize, hv);
         }
         return reBoard;
     }

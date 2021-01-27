@@ -34,7 +34,7 @@ public class Player
     static Player botPlayer()
     {
         Player rePlayer = new Player(randomName[(int)(Math.random()*22)]);
-
+        rePlayer.setBoard(Game.randomBoard());
         return rePlayer;
     }
 }

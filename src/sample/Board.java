@@ -11,9 +11,12 @@ public class Board
      */
 
     private int[][] fireld = new int[Game.FIRELDSIZE][Game.FIRELDSIZE];
+    private int placeableShips = Game.MAX_SHIPS;
 
     public int[][] getFireld() { return fireld; }
     public void setFireld(int[][] fireld) { this.fireld = fireld; }
+    public int getPlaceableShips() { return placeableShips; }
+    public void setPlaceableShips(int placeableShips) { this.placeableShips = placeableShips; }
 
     //Schießt eine Bombe auf die gegebenen Koordinaten.
     //Aus Systemtechnischer Sicht - Man ändert einen 1er zu 404, wenn getroffen.
@@ -99,6 +102,12 @@ public class Board
     //(Koordinaten aus x und y, Länge des Schiffes, Angabe von Horizontal oder Vertikal)
     void placeShip(int x, int y, int shipSize, char hv)
     {
+        boolean worked = true;
+        if (getPlaceableShips() - shipSize <= 0)
+        {
+            shipSize = getPlaceableShips();
+        }
+
         if (checkForSpace(x,y,shipSize,hv))
         {
             if (shipSize != 0)
@@ -112,7 +121,7 @@ public class Board
                     getFireld()[y][x+i] = 1;
                 }
             }
-            else
+            else if (hv == 'V')
             {
                 for (int i = 1; i < shipSize; i++)
                 {
@@ -124,6 +133,11 @@ public class Board
         else
         {
             System.out.println("Not enough Place.");
+            worked = false;
+        }
+        if (worked)
+        {
+            setPlaceableShips(getPlaceableShips()-shipSize);
         }
     }
 
@@ -135,104 +149,44 @@ public class Board
         {
             if (hv == 'H')
             {
-                try {
-                    getFireld()[y][x - 1] = 22;
-                } catch (IndexOutOfBoundsException ignored) { }
-                try {
-                    getFireld()[y + 1][x] = 22;
-                } catch (IndexOutOfBoundsException ignored) { }
-                try {
-                    getFireld()[y - 1][x] = 22;
-                } catch (IndexOutOfBoundsException ignored) { }
-                try {
-                    getFireld()[y - 1][x - 1] = 22;
-                } catch (IndexOutOfBoundsException ignored) { }
-                try {
-                    getFireld()[y + 1][x - 1] = 22;
-                } catch (IndexOutOfBoundsException ignored) { }
-                if (shipSize == 1)
+                for (int i = -1; i < 2; i++)
                 {
-                    try{
-                        getFireld()[y][x + 1] = 22;
-                    }catch (IndexOutOfBoundsException ignored) { }
-                    try{
-                        getFireld()[y + 1][x + 1] = 22;
-                    }catch (IndexOutOfBoundsException ignored){}
-                    try{
-                        getFireld()[y - 1][x + 1] = 22;
-                    }catch (IndexOutOfBoundsException ignored){}
-                }else {
-                    for (int i = 1; i < shipSize; i++)
+                    for (int j = -1; j <= shipSize; j++)
                     {
-                        try {
-                            getFireld()[y + 1][x + i] = 22;
-                        } catch (IndexOutOfBoundsException ignored) { }
-                        try {
-                            getFireld()[y - 1][x + i] = 22;
-                        } catch (IndexOutOfBoundsException ignored) { }
-                        if (i + 1 >= shipSize)
+                        if (i == 0)
                         {
                             try {
-                                getFireld()[y][x + i + 1] = 22;
-                            } catch (IndexOutOfBoundsException ignored) { }
+                                getFireld()[y][x - 1] = 22;
+                            }catch (IndexOutOfBoundsException ignored){}
                             try {
-                                getFireld()[y - 1][x + i + 1] = 22;
-                            } catch (IndexOutOfBoundsException ignored) { }
-                            try {
-                                getFireld()[y + 1][x + i + 1] = 22;
-                            } catch (IndexOutOfBoundsException ignored) { }
+                                getFireld()[y][x + shipSize] = 22;
+                            }catch (IndexOutOfBoundsException ignored){}
+                            i++;
                         }
+                        try {
+                            getFireld()[y + i][x + j] = 22;
+                        }catch (IndexOutOfBoundsException ignored){}
                     }
                 }
             } else
             {
-                try {
-                    getFireld()[y - 1][x] = 22;
-                } catch (IndexOutOfBoundsException ignored) { }
-                try {
-                    getFireld()[y][x + 1] = 22;
-                } catch (IndexOutOfBoundsException ignored) { }
-                try {
-                    getFireld()[y][x - 1] = 22;
-                } catch (IndexOutOfBoundsException ignored) { }
-                try {
-                    getFireld()[y - 1][x - 1] = 22;
-                } catch (IndexOutOfBoundsException ignored) { }
-                try {
-                    getFireld()[y - 1][x + 1] = 22;
-                } catch (IndexOutOfBoundsException ignored) { }
-                if(shipSize == 1)
+                for (int i = -1; i < 2; i++)
                 {
-                    try{
-                        getFireld()[y + 1][x] = 22;
-                    }catch (IndexOutOfBoundsException ignored){}
-                    try{
-                        getFireld()[y + 1][x + 1] = 22;
-                    }catch (IndexOutOfBoundsException ignored){}
-                    try{
-                        getFireld()[y + 1][x - 1] = 22;
-                    }catch (IndexOutOfBoundsException ignored){}
-                }else {
-                    for (int i = 1; i < shipSize; i++)
+                    for (int j = -1; j <= shipSize; j++)
                     {
-                        try {
-                            getFireld()[y + i][x + 1] = 22;
-                        } catch (IndexOutOfBoundsException ignored) { }
-                        try {
-                            getFireld()[y + i][x - 1] = 22;
-                        } catch (IndexOutOfBoundsException ignored) { }
-                        if (i + 1 >= shipSize)
+                        if (i == 0)
                         {
                             try {
-                                getFireld()[y + i + 1][x] = 22;
-                            } catch (IndexOutOfBoundsException ignored) { }
+                                getFireld()[y - 1][x] = 22;
+                            }catch (IndexOutOfBoundsException ignored){}
                             try {
-                                getFireld()[y + i + 1][x - 1] = 22;
-                            } catch (IndexOutOfBoundsException ignored) { }
-                            try {
-                                getFireld()[y + i + 1][x + 1] = 22;
-                            } catch (IndexOutOfBoundsException ignored) { }
+                                getFireld()[y + shipSize][x] = 22;
+                            }catch (IndexOutOfBoundsException ignored){}
+                            i++;
                         }
+                        try {
+                            getFireld()[y + j][x + i] = 22;
+                        }catch (IndexOutOfBoundsException ignored){}
                     }
                 }
             }

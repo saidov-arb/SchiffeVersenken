@@ -8,6 +8,14 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    /**♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+     * @Authors:     Arbi Saidov        (Backend.)
+     *              Patrick Watzinger   (Frontend.)
+     *              Marko Jezidzic      (Project Manager.)
+     * @param primaryStage
+     * @throws Exception
+     ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦*/
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
@@ -20,18 +28,26 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
 
-//        Player zisPlayer = Player.botPlayer();
+//        Game zisGame = new Game();
+//        zisGame.getGamers()[0] = new Player("OneCentProduction TestUser");
+//        zisGame.getGamers()[1] = Player.botPlayer();
 //
-//        zisPlayer.setBoard(Game.randomBoard());
-//        zisPlayer.getBoard().printBoard();
+//        zisGame.getGamers()[0].getBoard().placeShip(0,0,5,'H');
+//        zisGame.getGamers()[0].getBoard().placeShip(0,2,5,'V');
+//        zisGame.getGamers()[0].getBoard().placeShip(2,2,5,'V');
+//        zisGame.getGamers()[0].getBoard().placeShip(4,2,5,'V');
+//        zisGame.getGamers()[0].getBoard().placeShip(6,2,5,'V');
+//        zisGame.getGamers()[0].getBoard().printBoard();
 //
-//        zisPlayer.getBoard().explode();
-//        zisPlayer.getBoard().explode();
-//        zisPlayer.getBoard().explode();
-//        zisPlayer.getBoard().explode();
-//        zisPlayer.getBoard().explode();
-//        zisPlayer.getBoard().explode();
-//
-//        zisPlayer.getBoard().printBoard();
+//        zisGame.getGamers()[1].getBoard().printBoard();
+
+//        zisGame.getGamers()[0].getBoard().explode();
+//        zisGame.getGamers()[0].getBoard().explode();
+//        zisGame.getGamers()[0].getBoard().explode();
+//        zisGame.getGamers()[0].getBoard().explode();
+//        zisGame.getGamers()[0].getBoard().explode();
+//        zisGame.getGamers()[0].getBoard().explode();
+
+//        zisGame.getGamers()[0].getBoard().printBoard();
     }
 }
