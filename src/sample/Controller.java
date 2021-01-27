@@ -15,6 +15,14 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable
 {
+    /**♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+     * @Authors:    Arbi Saidov        (Backend.)
+     *              Patrick Watzinger   (Frontend.)
+     *              Marko Jezidzic      (Project Manager.)
+     * @param primaryStage
+     * @throws Exception
+    ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦*/
+
     @FXML TextField txt_name,txt_shipSize;
     @FXML Label lbl_score,lbl_maxShips;
     @FXML Button btn_ready,btn_surrender;
@@ -24,7 +32,6 @@ public class Controller implements Initializable
 
     Game zisGame = new Game();
     char hv;
-    int shipSize;
     int playerIndex;
 
     @Override
@@ -47,17 +54,23 @@ public class Controller implements Initializable
         hv = 'H';
     }
 
+
+    //Je nachdem, was man wählt, also H oder V, wird H oder V in hv gespeichert.
+    //(Braucht man um die Schiffe zu platzieren.)
     public void clickOnHV(ActionEvent av){
         Button input = (Button) av.getSource();
         hv = input.getText().toCharArray()[0];
     }
 
+
+    //Wenn man Bereit klickt, so werden alle TextFields und Buttons disabled.
+    //Der Button Aufgeben soll erscheinen.
     public void clickOnReady(){
-        zisGame.getGamers()[0] = new Player(txt_name.getText());
-        zisGame.getGamers()[1] = Player.botPlayer();
         txt_name.setDisable(true);
     }
 
+
+    //Wenn man sein eigenes Board sieht, kann man seine Schiffe platzieren.
     EventHandler<MouseEvent> clickOnButtonToPlace = new EventHandler<MouseEvent>()
     {
         @Override
@@ -67,6 +80,8 @@ public class Controller implements Initializable
         }
     };
 
+
+    //Wenn man das Board des Gegners sieht, kann man ein Feld angreifen.
     EventHandler<MouseEvent> clickOnButtonToDestroy = new EventHandler<MouseEvent>()
     {
         @Override
@@ -76,6 +91,8 @@ public class Controller implements Initializable
         }
     };
 
+
+    //Zeigt das Board an, welches mitgegeben wurde.
     public void updateView(Board iBoard)
     {
         for (int i = 0; i < Game.FIRELDSIZE; i++)

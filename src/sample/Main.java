@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     /**♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
-     * @Authors:     Arbi Saidov        (Backend.)
+     * @Authors:    Arbi Saidov        (Backend.)
      *              Patrick Watzinger   (Frontend.)
      *              Marko Jezidzic      (Project Manager.)
      * @param primaryStage
@@ -27,7 +27,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-
+//
 //        Game zisGame = new Game();
 //        zisGame.getGamers()[0] = new Player("OneCentProduction TestUser");
 //        zisGame.getGamers()[1] = Player.botPlayer();
@@ -37,17 +37,38 @@ public class Main extends Application {
 //        zisGame.getGamers()[0].getBoard().placeShip(2,2,5,'V');
 //        zisGame.getGamers()[0].getBoard().placeShip(4,2,5,'V');
 //        zisGame.getGamers()[0].getBoard().placeShip(6,2,5,'V');
+//
 //        zisGame.getGamers()[0].getBoard().printBoard();
+//        zisGame.getGamers()[1].getBoard().printBoard();
+//
+//        for (int i = 0; i < Game.FIRELDSIZE; i++)
+//        {
+//            for (int j = 0; j < Game.FIRELDSIZE; j++)
+//            {
+//                zisGame.attackField(0);
+//                zisGame.attackField(1,i,j);
+//            }
+//        }
+//        zisGame.attackField(1,4,4);
+//        zisGame.attackField(1,5,5);
+//        zisGame.attackField(1,6,6);
+//        zisGame.attackField(1,7,7);
+//
+//        zisGame.getGamers()[0].getBoard().printBoard();
+//        zisGame.getGamers()[1].getBoard().printBoard();
+//
+//        System.out.println("\nScore G0: "+zisGame.getGamers()[0].getScore());
+//        System.out.println("Score G1: "+zisGame.getGamers()[1].getScore());
 //
 //        zisGame.getGamers()[1].getBoard().printBoard();
-
+//
 //        zisGame.getGamers()[0].getBoard().explode();
 //        zisGame.getGamers()[0].getBoard().explode();
 //        zisGame.getGamers()[0].getBoard().explode();
 //        zisGame.getGamers()[0].getBoard().explode();
 //        zisGame.getGamers()[0].getBoard().explode();
 //        zisGame.getGamers()[0].getBoard().explode();
-
-//        zisGame.getGamers()[0].getBoard().printBoard();
+//
+//        zisGame.getGamers()[1].getBoard().printBoard();
     }
 }

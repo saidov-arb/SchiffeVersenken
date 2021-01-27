@@ -2,6 +2,14 @@ package sample;
 
 public class Game
 {
+    /**♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+     * @Authors:    Arbi Saidov        (Backend.)
+     *              Patrick Watzinger   (Frontend.)
+     *              Marko Jezidzic      (Project Manager.)
+     * @param primaryStage
+     * @throws Exception
+    ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦*/
+
     final static public int FIRELDSIZE = 10;
     static public final int MAX_SHIPS = (int) ( FIRELDSIZE * 1.7);
     private Player[] gamers = new Player[2];
@@ -24,6 +32,47 @@ public class Game
             return -7;
         }
     }
+
+
+    //Zählt den Score. Jedes zerstörte Schiff = +1 Score.
+    void countScore()
+    {
+        getGamers()[0].setScore(0);
+        getGamers()[1].setScore(0);
+        for (int i = 0; i < Game.FIRELDSIZE; i++)
+        {
+            for (int j = 0; j < Game.FIRELDSIZE; j++)
+            {
+                if (getGamers()[0].getBoard().getFireld()[i][j] == 404)
+                {
+                    getGamers()[1].setScore(getGamers()[1].getScore()+1);
+                }
+                if (getGamers()[1].getBoard().getFireld()[i][j] == 404)
+                {
+                    getGamers()[0].setScore(getGamers()[0].getScore()+1);
+                }
+            }
+        }
+    }
+
+
+    //Greift auf den gewünschten Koordinaten an. Wenn getroffen, wird der Score
+    //des Spielers, der geschossen hat um 1 erhöht.
+    void attackField(int playerIndex,int x, int y)
+    {
+        getGamers()[playerIndex].getBoard().explode(x,y);
+        countScore();
+    }
+
+
+    //Greift irgendwelche Koordinaten an. Wenn getroffen, wird der Score
+    //des Spielers, der geschossen hat um 1 erhöht.
+    void attackField(int playerIndex)
+    {
+        getGamers()[playerIndex].getBoard().explode();
+        countScore();
+    }
+
 
     //Generiert ein random Board, wo die Schiffe zufällig platziert werden.
     static Board randomBoard()

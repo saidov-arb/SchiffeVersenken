@@ -2,12 +2,22 @@ package sample;
 
 public class Board
 {
+    /**♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+     * @Authors:    Arbi Saidov        (Backend.)
+     *              Patrick Watzinger   (Frontend.)
+     *              Marko Jezidzic      (Project Manager.)
+     *
+     * @Codes:      0   -   Space
+     *              1   -   Ship
+     *              22  -   Needed Space
+     *              404 -   Destroyed Ship
+     *              501 -   Not a Ship
+     *
+     * @param primaryStage
+     * @throws Exception
+    ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦*/
+
     /********************************************
-     * Codes:   0   -   Space
-     *          1   -   Ship
-     *          22  -   Needed Space
-     *          404 -   Destroyed Ship
-     *          501 -   Not a Ship
      */
 
     private int[][] fireld = new int[Game.FIRELDSIZE][Game.FIRELDSIZE];

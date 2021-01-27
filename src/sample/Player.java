@@ -2,6 +2,14 @@ package sample;
 
 public class Player
 {
+    /**♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦
+     * @Authors:    Arbi Saidov        (Backend.)
+     *              Patrick Watzinger   (Frontend.)
+     *              Marko Jezidzic      (Project Manager.)
+     * @param primaryStage
+     * @throws Exception
+    ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦*/
+
     private String name;
     private int score;
     private Board board;
@@ -30,7 +38,8 @@ public class Player
         setScore(0);
     }
 
-    //Generiert einen random Spieler.
+
+    //Generiert einen random Spieler mit random Board.
     static Player botPlayer()
     {
         Player rePlayer = new Player(randomName[(int)(Math.random()*22)]);
