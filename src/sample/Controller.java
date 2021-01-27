@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -47,6 +48,7 @@ public class Controller implements Initializable
                 fireldButtons[i][j].setMinHeight(50);
                 fireldButtons[i][j].setStyle("-fx-border-color: black;");
                 fireldButtons[i][j].setId(idCounter+"");
+                fireldButtons[i][j].setFont(Font.font("Verdana", 20));
                 fireldButtons[i][j].addEventFilter(MouseEvent.MOUSE_CLICKED,clickOnButtonToPlace);
                 idCounter++;
                 this.GP_Feld.add(fireldButtons[i][j],i+3,j);
@@ -203,6 +205,13 @@ public class Controller implements Initializable
         public void handle(MouseEvent mouseEvent)
         {
             Button input = (Button) mouseEvent.getSource();
+            if(Integer.parseInt(txt_shipSize.getText())<0){
+                try {
+                    txt_shipSize.setText(String.valueOf(Math.abs(Integer.parseInt(txt_shipSize.getText()))));
+                }catch (NumberFormatException e) {
+                    System.out.println("Sie beser geben ein eine Zahl.");
+                }
+            }
             for (int i = 0; i < Game.FIRELDSIZE; i++)
             {
                 for (int j = 0; j < Game.FIRELDSIZE; j++)
@@ -304,9 +313,15 @@ public class Controller implements Initializable
             {
                 for (int j = 0; j < Game.FIRELDSIZE; j++)
                 {
-                    if (iBoard.getFireld()[j][i] == 1 || iBoard.getFireld()[j][i] == 404 || iBoard.getFireld()[j][i] == 501)
+                    if (iBoard.getFireld()[j][i] == 1)
                     {
-                        fireldButtons[i][j].setText(String.valueOf(iBoard.getFireld()[j][i]));
+                        fireldButtons[i][j].setText("ʘ");
+                    }
+                    else if (iBoard.getFireld()[j][i] == 404 ){
+                        fireldButtons[i][j].setText("֍");
+                    }
+                    else if (iBoard.getFireld()[j][i] == 501){
+                        fireldButtons[i][j].setText("⃠");
                     }
                 }
             }
@@ -315,9 +330,11 @@ public class Controller implements Initializable
             {
                 for (int j = 0; j < Game.FIRELDSIZE; j++)
                 {
-                    if (iBoard.getFireld()[j][i] == 1 || iBoard.getFireld()[j][i] == 404 || iBoard.getFireld()[j][i] == 501)
-                    {
-                        fireldButtons[i][j].setText(String.valueOf(iBoard.getFireld()[j][i]));
+                    if (iBoard.getFireld()[j][i] == 404 ){
+                        fireldButtons[i][j].setText("֍");
+                    }
+                    else if (iBoard.getFireld()[j][i] == 501){
+                        fireldButtons[i][j].setText("⃠");
                     }
                 }
             }
