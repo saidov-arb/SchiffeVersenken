@@ -48,7 +48,7 @@ public class Controller implements Initializable
                 fireldButtons[i][j].setMinHeight(50);
                 fireldButtons[i][j].setStyle("-fx-border-color: black;");
                 fireldButtons[i][j].setId(idCounter+"");
-                fireldButtons[i][j].setFont(Font.font("Verdana", 20));
+                fireldButtons[i][j].setFont(Font.font("Verdana", 18));
                 fireldButtons[i][j].addEventFilter(MouseEvent.MOUSE_CLICKED,clickOnButtonToPlace);
                 idCounter++;
                 this.GP_Feld.add(fireldButtons[i][j],i+3,j);
