@@ -17,9 +17,6 @@ public class Board
      * @throws Exception
     ♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦*/
 
-    /********************************************
-     */
-
     private int[][] fireld = new int[Game.FIRELDSIZE][Game.FIRELDSIZE];
     private int placeableShips = Game.MAX_SHIPS;
 
@@ -37,7 +34,7 @@ public class Board
             if (getFireld()[y][x] == 1)
             {
                 getFireld()[y][x] = 404;
-            }else{
+            }else if (getFireld()[y][x] == 22 || getFireld()[y][x] == 0){
                 getFireld()[y][x] = 501;
             }
         }catch (IndexOutOfBoundsException e)

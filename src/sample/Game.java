@@ -13,9 +13,14 @@ public class Game
     final static public int FIRELDSIZE = 10;
     static public final int MAX_SHIPS = (int) ( FIRELDSIZE * 1.7);
     private Player[] gamers = new Player[2];
+    private int playerIndex = 0, boardIndex = 0;
 
     public Player[] getGamers() { return gamers; }
     public void setGamers(Player[] gamers) { this.gamers = gamers; }
+    public int getPlayerIndex() { return playerIndex; }
+    public void setPlayerIndex(int playerIndex) { this.playerIndex = playerIndex; }
+    public int getBoardIndex() { return boardIndex; }
+    public void setBoardIndex(int boardIndex) { this.boardIndex = boardIndex; }
 
     //Ein Spieler muss "MAX_SHIPS" Score haben, damit er gewinnt.
     //Gibt den Index vom Array zurück, je nachdem welcher Spieler gewonnen hat.
@@ -58,19 +63,31 @@ public class Game
 
     //Greift auf den gewünschten Koordinaten an. Wenn getroffen, wird der Score
     //des Spielers, der geschossen hat um 1 erhöht.
-    void attackField(int playerIndex,int x, int y)
+    void attackField(int x, int y)
     {
-        getGamers()[playerIndex].getBoard().explode(x,y);
+        getGamers()[getBoardIndex()].getBoard().explode(x,y);
         countScore();
     }
 
 
     //Greift irgendwelche Koordinaten an. Wenn getroffen, wird der Score
     //des Spielers, der geschossen hat um 1 erhöht.
-    void attackField(int playerIndex)
+    void attackField()
     {
-        getGamers()[playerIndex].getBoard().explode();
+        getGamers()[getBoardIndex()].getBoard().explode();
         countScore();
+    }
+
+
+    //Lässt den Bot solange angreifen, wie er trifft.
+    void botGame()
+    {
+        int tempScore = getGamers()[getPlayerIndex()].getScore();
+        attackField();
+        while (tempScore < getGamers()[getPlayerIndex()].getScore()) {
+            tempScore = getGamers()[getPlayerIndex()].getScore();
+            attackField();
+        }
     }
 
 
@@ -98,5 +115,21 @@ public class Game
             reBoard.placeShip(x, y, shipSize, hv);
         }
         return reBoard;
+    }
+
+
+    //Setzte die Indexes für die nächste Runde bereit.
+    void nextRound()
+    {
+        setPlayerIndex(getPlayerIndex()+1);
+        if (getPlayerIndex() > 1)
+        {
+            setPlayerIndex(0);
+        }
+        setBoardIndex(getBoardIndex()+1);
+        if (getBoardIndex() > 1)
+        {
+            setBoardIndex(0);
+        }
     }
 }
